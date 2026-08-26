@@ -36,7 +36,7 @@ The ONNX conversion, quantization, and inference notebook can be viewed [here](h
 
 The compressed model is deployed as a **Gradio application on HuggingFace Spaces**.
 
-The deployment implementation can be found in the `deployment` folder or [here](LINK).
+The deployment implementation can be found in the `deployment` folder or [here](https://huggingface.co/spaces/SheikhAnandee/multilabel-ubemy-course-classifier).
 
 The deployment uses:
 
@@ -45,3 +45,7 @@ The deployment uses:
 - `distilroberta-base` tokenizer for text preprocessing
 - Quantized ONNX model for course-topic prediction
 - `topic_types_encoded.json` for mapping predicted labels to topic names
+
+<p align="center">
+  <img src="Screenshot (651).png" width="900">
+</p> 
