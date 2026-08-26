@@ -47,5 +47,5 @@ The deployment uses:
 - `topic_types_encoded.json` for mapping predicted labels to topic names
 
 <p align="center">
-  <img src="Screenshot (651).png" width="900">
+  <img src="src/Screenshot (651).png" width="900">
 </p> 
