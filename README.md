@@ -8,7 +8,7 @@ The keys of `deployment\topic_types_encoded.json` show the full list of course t
 
 Data was collected by scraping Udemy course listings (title, URL, description, topic,  topic list) into `course_details.csv`.
 
-In total, I scraped 11,057 course details.
+In total, I scraped **11,057** course details.
 
 ## Data Preprocessing
 
