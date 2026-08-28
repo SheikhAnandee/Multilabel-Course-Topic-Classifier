@@ -1,3 +1,6 @@
+from dotenv import load_dotenv
+load_dotenv()
+
 from flask import Flask, render_template, request
 import os
 from gradio_client import Client
@@ -6,7 +9,7 @@ app = Flask(__name__)
 
 client = Client(
     "SheikhAnandee/multilabel-ubemy-course-classifier",
-    token=os.environ.get("HF_TOKEN")   
+    token=os.environ.get("HF_TOKEN")
 )
 
 @app.route("/", methods=['GET', 'POST'])
