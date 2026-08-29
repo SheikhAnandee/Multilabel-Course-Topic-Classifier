@@ -36,7 +36,7 @@ The ONNX conversion, quantization, and inference notebook can be viewed [here](h
 
 The compressed model is deployed as a **Gradio application on HuggingFace Spaces**.
 
-The deployment implementation can be found in the `deployment` folder or [here](https://huggingface.co/spaces/SheikhAnandee/multilabel-ubemy-course-classifier).
+The deployment implementation can be found in the `deployment` folder or [here](https://huggingface.co/spaces/SheikhAnandee/multilabel-udemy-course-classifier).
 
 The deployment uses:
 
@@ -50,7 +50,7 @@ The deployment uses:
   <img src="src/Screenshot (651).png" width="900">
 </p> 
 
-## Wed Development
+## Web Development
 
 Deployed a Flask app that takes a course description and outputs its predicted topics. Check the `flask` branch. The website is live [here](https://multilabel-course-topic-classifier-2.onrender.com/).
 
