@@ -18,7 +18,7 @@ def index():
         input_text = request.form['text']
         output = predict_topics(input_text)
         confidence_list = output['confidences']
-        labels = [elem['label'] for elem in confidence_list if elem['confidence'] >= 0.3]
+        labels = [elem['label'] for elem in confidence_list if elem['confidence'] >= 0.5]
         label_text = ", ".join(labels)
         return render_template("result.html", input_text=input_text, output_text=label_text)
     else:
