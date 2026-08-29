@@ -55,10 +55,10 @@ The deployment uses:
 Deployed a Flask app that takes a course description and outputs its predicted topics. Check the `flask` branch. The website is live [here](https://multilabel-course-topic-classifier-2.onrender.com/).
 
 <p align="center">
-  <img src="Screenshot 2026-08-29 201842.png" width="900">
+  <img src="src/Screenshot 2026-08-29 201842.png" width="900">
 </p> 
 
 <p align="center">
-  <img src="Screenshot 2026-08-29 202110.png" width="900">
+  <img src="src/Screenshot 2026-08-29 202110.png" width="900">
 </p> 
 
