@@ -1,5 +1,4 @@
-# Multilabel-Course-Topic-Classifier
-A text classification model covering data collection, preprocessing, model training, and deployment.
+# API integration in website
 
 The model can classify Udemy courses into **66 different topics** based on their description.
 The keys of `deployment\topic_types_encoded.json` show the full list of course topics.

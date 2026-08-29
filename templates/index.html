@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Udemy Course Topic Classifier</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .wrapper {
+            width: 100%;
+            max-width: 640px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            font-size: 1.05rem;
+            opacity: 0.85;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 220px;
+            resize: vertical;
+            padding: 16px;
+            font-size: 16px;
+            font-family: inherit;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #764ba2;
+            box-shadow: 0 0 0 4px rgba(118, 75, 162, 0.12);
+        }
+
+        textarea::placeholder {
+            color: #aaa;
+        }
+
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 14px;
+            font-size: 17px;
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(118, 75, 162, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 20px;
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <h1>📚 Course Topic Classifier</h1>
+            <p>Paste a course description and discover its topics instantly</p>
+        </div>
+
+        <div class="card">
+            <form action="/" method="post">
+                <label for="text">Course Description</label>
+                <textarea id="text" name="text" placeholder="e.g. This course covers neural networks, backpropagation, and deep learning architectures for image recognition..."></textarea>
+                <button type="submit">✨ Classify Topics</button>
+            </form>
+        </div>
+
+        <p class="footer-note">Powered by a multilabel machine learning model</p>
+    </div>
+</body>
+
+</html>
