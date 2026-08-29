@@ -56,9 +56,12 @@ Deployed a Flask app that takes a course description and outputs its predicted t
 
 <p align="center">
   <img src="src/Screenshot 2026-08-29 201842.png" width="900">
+   <br>
+  <em>Input form — paste a course description</em>
 </p> 
 
 <p align="center">
-  <img src="src/Screenshot 2026-08-29 202110.png" width="900">
-</p> 
-
+  <img src="src/Screenshot_2026-08-29_201842.png" style="max-width: 100%; height: auto;" alt="Course description input form">
+<br>
+<em>Result — multiple predicted topics (Development, Python, IT & Software, Data Science, Programming Languages)</em>
+</p>
