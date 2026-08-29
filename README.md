@@ -55,13 +55,13 @@ The deployment uses:
 Deployed a Flask app that takes a course description and outputs its predicted topics. Check the `flask` branch. The website is live [here](https://multilabel-course-topic-classifier-2.onrender.com/).
 
 <p align="center">
-  <img src="src/Screenshot 2026-08-29 201842.png" width="900">
+  <img src="src/Screenshot 2026-08-29 201842.png" width="650">
    <br>
   <em>Input form — paste a course description</em>
 </p> 
 
 <p align="center">
-  <img src="src/Screenshot_2026-08-29_201842.png" style="max-width: 100%; height: auto;" alt="Course description input form">
+  <img src="src/Screenshot_2026-08-29_201842.png" width="650">
   <br>
   <em>Result — multiple predicted topics (Development, Python, IT & Software, Data Science, Programming Languages)</em>
 </p>
