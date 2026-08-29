@@ -46,6 +46,12 @@ The deployment uses:
 - Quantized ONNX model for course-topic prediction
 - `topic_types_encoded.json` for mapping predicted labels to topic names
 
+<<<<<<< HEAD
 <p align="center">
   <img src="src/Screenshot (651).png" width="900">
 </p> 
+=======
+## Wed Development
+
+Deployed a Flask app that takes a course description and outputs its predicted topics. Check the `flask` branch. The website is live [here](https://multilabel-course-topic-classifier.onrender.com/).
+
