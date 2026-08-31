@@ -55,7 +55,7 @@ Deployed a Flask app that takes a course description and outputs its predicted t
 </p> 
 
 <p align="center">
-  <img src="src/Screenshot 2026-08-31 055102" width="900">
+  <img src="src/Screenshot 2026-08-31 055102.png" width="900">
   <br>
   <em>Result — predicted topics for a course description (Finance & Accounting, Accounting & Bookkeeping, Accounting)</em>
 </p>
