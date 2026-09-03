@@ -20,7 +20,8 @@ Fine-tuned a `distilroberta-base` model from HuggingFace Transformers using **Fa
 The model takes a course description as input and predicts the relevant course topics.
 The model training notebook can be viewed [here](https://github.com/SheikhAnandee/Multilabel-Course-Topic-Classifier/tree/a3c48d34f6c1cf4d9234fccd7f1c8df8403498cc/notebooks).
 
-On a held-out validation split (10% of the data, 1,105 samples), the model achieved an F1 score (micro) of 0.48 and F1 score (macro) of 0.08.
+On a held-out validation split, the model achieved an F1 score (micro) of 0.59 and F1 score (macro) of 0.42.
+
 
 ## Model Compression and ONNX Inference
 
@@ -41,7 +42,7 @@ The deployment uses:
 - `topic_types_encoded.json` for mapping predicted labels to topic names
   
 <p align="center">
-  <img src="src/Screenshot (651).png" width="900">
+  <img src="gradio.png" width="900">
 </p> 
 
 ## Web Development
@@ -49,13 +50,13 @@ The deployment uses:
 Deployed a Flask app that takes a course description and outputs its predicted topics. Check the `flask` branch. The website is live [here](https://multilabel-course-topic-classifier-2.onrender.com/).
 
 <p align="center">
-  <img src="src/Screenshot 2026-08-31 055030.png" width="900">
+  <img src="flask_app_home.png" width="900">
    <br>
   <em>Input form — paste a course description</em>
 </p> 
 
 <p align="center">
-  <img src="src/Screenshot 2026-08-31 055102.png" width="900">
+  <img src="flask_app_results.png" width="900">
   <br>
   <em>Result — predicted topics for a course description (Finance & Accounting, Accounting & Bookkeeping, Accounting)</em>
 </p>
