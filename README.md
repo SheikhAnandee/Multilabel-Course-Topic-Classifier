@@ -41,23 +41,23 @@ The deployment uses:
 - `distilroberta-base` tokenizer for text preprocessing
 - Quantized ONNX model for course-topic prediction
 - `topic_types_encoded.json` for mapping predicted labels to topic names
-  
+- 
 <p align="center">
-  <img src="gradio.png" width="900">
-</p> 
+  <img src="src/gradio.png" width="900">
+</p>
 
 ## Web Development
 
 Deployed a Flask app that takes a course description and outputs its predicted topics. Check the `flask` branch. The website is live [here](https://multilabel-course-topic-classifier-2.onrender.com/).
 
 <p align="center">
-  <img src="flask_app_home.png" width="900">
+  <img src="src/flask_app_home.png" width="900">
    <br>
   <em>Input form — paste a course description</em>
 </p> 
 
 <p align="center">
-  <img src="flask_app_results.png" width="900">
+  <img src="src/flask_app_results.png" width="900">
   <br>
   <em>Result — predicted topics for a course description (Finance & Accounting, Accounting & Bookkeeping, Accounting)</em>
 </p>
