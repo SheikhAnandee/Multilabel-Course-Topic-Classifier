@@ -26,7 +26,8 @@ On a held-out validation split, the model achieved an F1 score (micro) of 0.59 a
 ## Model Compression and ONNX Inference
 
 The trained PyTorch model was converted to **ONNX** for more efficient inference.
-The ONNX model was then compressed using **dynamic INT8 quantization** (`onnxruntime.quantization.quantize_dynamic`), reducing the model size and making it more suitable for CPU-based inference. On the same validation split, the quantized model matched the unquantized ONNX model's performance (F1 micro ≈ 0.48, F1 macro ≈ 0.08), with predictions thresholded at a sigmoid probability of 0.5.
+The ONNX model was then compressed using **dynamic INT8 quantization** (`onnxruntime.quantization.quantize_dynamic`), reducing the model size and making it more suitable for CPU-based inference. On the same validation split, using per-class tuned thresholds, the unquantized ONNX model scored F1 micro 0.59 / F1 macro 0.42, and the quantized model scored F1 micro 0.58 / F1 macro 0.41 — a small drop from quantization, as expected.
+
 The ONNX conversion, quantization, and inference notebook can be viewed [here](https://github.com/SheikhAnandee/Multilabel-Course-Topic-Classifier/tree/a3c48d34f6c1cf4d9234fccd7f1c8df8403498cc/notebooks).
 
 ## Model Deployment
