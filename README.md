@@ -59,5 +59,5 @@ Deployed a Flask app that takes a course description and outputs its predicted t
 <p align="center">
   <img src="src/flask_app_results.png" width="900">
   <br>
-  <em>Result — predicted topics for a course description (Finance & Accounting, Accounting & Bookkeeping, Accounting)</em>
+<em>Result — predicted topics for a course description (Development, Web Development, JavaScript)</em>
 </p>
