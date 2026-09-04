@@ -3,8 +3,23 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Classification Result</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --ink: #12261E;
+            --paper: #EFF1EC;
+            --card: #FFFFFF;
+            --marigold: #E8A33D;
+            --marigold-deep: #C8811E;
+            --teal: #3F6357;
+            --rule: #D8DCD3;
+            --muted: #5B6660;
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -12,135 +27,164 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Work Sans', sans-serif;
+            background: var(--paper);
+            color: var(--ink);
+            line-height: 1.5;
             min-height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 40px 20px;
+            padding: 48px 20px;
         }
 
-        .wrapper {
+        .wrap {
             width: 100%;
-            max-width: 700px;
+            max-width: 640px;
         }
 
-        .header {
+        .page-head {
             text-align: center;
-            margin-bottom: 30px;
-            color: white;
+            margin-bottom: 34px;
         }
 
-        .header h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-bottom: 8px;
+        .page-head h1 {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 10px;
         }
 
-        .header p {
+        .page-head p {
+            color: var(--muted);
             font-size: 1rem;
-            opacity: 0.85;
         }
 
         .card {
-            background: #ffffff;
+            background: var(--card);
+            border: 1px solid var(--rule);
             border-radius: 16px;
             padding: 40px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
         }
 
         .section {
             margin-bottom: 28px;
         }
 
-        .section:last-child {
+        .section:last-of-type {
             margin-bottom: 0;
         }
 
-        .section label {
+        .section-label {
             display: block;
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 0.78rem;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: #764ba2;
-            margin-bottom: 10px;
+            letter-spacing: 0.08em;
+            color: var(--teal);
+            margin-bottom: 12px;
         }
 
         .input-box {
-            background: #f7f6fb;
-            border: 1px solid #e5e0f0;
+            background: var(--paper);
+            border: 1px solid var(--rule);
             border-radius: 10px;
-            padding: 16px 18px;
-            font-size: 16px;
-            color: #333;
-            line-height: 1.5;
+            padding: 18px 20px;
+            font-size: 0.96rem;
+            color: var(--ink);
+            line-height: 1.6;
         }
 
-        .topics-box {
+        .topics {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
         }
 
-        .topic-pill {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+        .topic {
+            background: var(--teal);
+            color: var(--card);
             padding: 8px 18px;
             border-radius: 999px;
-            font-size: 14px;
+            font-size: 0.92rem;
             font-weight: 600;
+        }
+
+        .empty-note {
+            color: var(--muted);
+            font-size: 0.92rem;
+            font-style: italic;
         }
 
         .back-btn {
-            display: inline-block;
-            margin-top: 32px;
+            display: block;
+            margin-top: 34px;
             width: 100%;
             text-align: center;
-            padding: 14px;
+            padding: 15px;
             font-size: 16px;
             font-weight: 600;
-            color: white;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Work Sans', sans-serif;
+            color: var(--ink);
+            background: var(--marigold);
+            border: none;
             border-radius: 10px;
             text-decoration: none;
-            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            transition: background 0.15s ease;
         }
 
         .back-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(118, 75, 162, 0.4);
+            background: var(--marigold-deep);
+        }
+
+        @media (max-width: 480px) {
+            .page-head h1 {
+                font-size: 1.6rem;
+            }
+
+            .card {
+                padding: 24px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="wrapper">
-        <div class="header">
-            <h1>🎯 Classification Result</h1>
-            <p>Here's what our model found in your course description</p>
+
+    <div class="wrap">
+        <div class="page-head">
+            <h1> Classification Result</h1>
+            <p>Here's what the model found in your course description.</p>
         </div>
 
         <div class="card">
             <div class="section">
-                <label>Input Text</label>
+                <span class="section-label">Input text</span>
                 <div class="input-box">{{ input_text }}</div>
             </div>
 
             <div class="section">
-                <label>Predicted Topics</label>
-                <div class="topics-box">
-                    {% for topic in output_text.split(', ') %}
-                        <span class="topic-pill">{{ topic }}</span>
+                <span class="section-label">Predicted topics</span>
+                {% set topics = output_text.split(', ') if output_text else [] %}
+                {% if topics %}
+                <div class="topics">
+                    {% for topic in topics %}
+                        <span class="topic">{{ topic }}</span>
                     {% endfor %}
                 </div>
+                {% else %}
+                <p class="empty-note">No confident match found — try a more detailed description.</p>
+                {% endif %}
             </div>
 
-            <a href="/" class="back-btn">← Classify Another Description</a>
+            <a href="/" class="back-btn">← Classify another description</a>
         </div>
     </div>
+
 </body>
 
 </html>

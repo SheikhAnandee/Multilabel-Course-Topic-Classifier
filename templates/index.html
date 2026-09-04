@@ -3,8 +3,24 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Udemy Course Topic Classifier</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --ink: #12261E;
+            --paper: #EFF1EC;
+            --card: #FFFFFF;
+            --marigold: #E8A33D;
+            --marigold-deep: #C8811E;
+            --teal: #3F6357;
+            --rule: #D8DCD3;
+            --muted: #5B6660;
+            --rose: #C9744F;
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -12,124 +28,334 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Work Sans', sans-serif;
+            background: var(--paper);
+            color: var(--ink);
+            line-height: 1.5;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ---------- Header ---------- */
+        header {
+            border-bottom: 1px solid var(--rule);
+            background: var(--card);
+        }
+
+        .nav {
             display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 40px 20px;
-        }
-
-        .wrapper {
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 20px clamp(24px, 5vw, 64px);
             width: 100%;
-            max-width: 640px;
         }
 
-        .header {
+        .wordmark {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            font-size: 1.15rem;
+        }
+
+        .badge {
+            font-size: 0.8rem;
+            color: var(--muted);
+            border: 1px solid var(--rule);
+            padding: 5px 12px;
+            border-radius: 999px;
+        }
+
+        /* ---------- Hero ---------- */
+        .hero {
             text-align: center;
-            margin-bottom: 30px;
-            color: white;
+            padding: 64px 0 40px;
         }
 
-        .header h1 {
-            font-size: 2.4rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-bottom: 8px;
+        .hero h1 {
+            font-size: clamp(1.7rem, 5.5vw, 2.6rem);
+            line-height: 1.15;
+            margin-bottom: 16px;
         }
 
-        .header p {
-            font-size: 1.05rem;
-            opacity: 0.85;
+        .hero p {
+            font-size: 1.08rem;
+            color: var(--muted);
+            max-width: 520px;
+            margin: 0 auto;
         }
 
+        /* ---------- Card / form ---------- */
         .card {
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 40px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+            background: var(--card);
+            border: 1px solid var(--rule);
+            border-radius: 14px;
+            padding: 36px;
+            margin-top: 36px;
+        }
+
+        .card-label-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
         }
 
         label {
             display: block;
             font-weight: 600;
             font-size: 0.95rem;
-            color: #333;
-            margin-bottom: 10px;
+        }
+
+        .hint {
+            font-size: 0.82rem;
+            color: var(--muted);
+        }
+
+        .field-help {
+            font-size: 0.87rem;
+            color: var(--muted);
+            margin-bottom: 12px;
+        }
+
+        .field-help strong {
+            color: var(--ink);
         }
 
         textarea {
             width: 100%;
-            height: 220px;
+            max-width: 100%;
+            height: 200px;
             resize: vertical;
             padding: 16px;
             font-size: 16px;
             font-family: inherit;
-            border: 2px solid #e0e0e0;
+            color: var(--ink);
+            border: 1.5px solid var(--rule);
             border-radius: 10px;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            background: var(--paper);
+            transition: border-color 0.2s ease;
         }
 
         textarea:focus {
             outline: none;
-            border-color: #764ba2;
-            box-shadow: 0 0 0 4px rgba(118, 75, 162, 0.12);
+            border-color: var(--teal);
         }
 
         textarea::placeholder {
-            color: #aaa;
+            color: #9AA39C;
         }
 
         button {
-            margin-top: 20px;
+            margin-top: 18px;
             width: 100%;
-            padding: 14px;
-            font-size: 17px;
+            padding: 15px;
+            font-size: 16px;
             font-weight: 600;
-            color: white;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Work Sans', sans-serif;
+            color: var(--ink);
+            background: var(--marigold);
             border: none;
             border-radius: 10px;
             cursor: pointer;
-            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            transition: background 0.15s ease;
         }
 
         button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(118, 75, 162, 0.4);
+            background: var(--marigold-deep);
         }
 
-        button:active {
-            transform: translateY(0);
+        /* ---------- How it works ---------- */
+        .how {
+            padding: 56px 0 64px;
         }
 
-        .footer-note {
+        .section-heading {
+            font-size: clamp(1.25rem, 3.5vw, 1.5rem);
+            margin-bottom: 8px;
+        }
+
+        .section-sub {
+            color: var(--muted);
+            margin-bottom: 32px;
+            max-width: 520px;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .step {
+            border-top: 2px solid var(--ink);
+            padding-top: 14px;
+        }
+
+        .step .num {
+            font-family: 'Fraunces', serif;
+            font-size: 1.6rem;
+            color: var(--teal);
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .step h3 {
+            font-size: 1.02rem;
+            margin-bottom: 6px;
+        }
+
+        .step p {
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        /* ---------- Footer ---------- */
+        footer {
+            border-top: 1px solid var(--rule);
+            padding: 28px 0 40px;
             text-align: center;
-            margin-top: 20px;
-            color: rgba(255, 255, 255, 0.75);
+        }
+
+        footer p {
             font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        footer p + p {
+            margin-top: 4px;
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                padding: 44px 0 32px;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            .card {
+                padding: 24px;
+            }
+
+            .how {
+                padding: 44px 0 48px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .nav {
+                padding: 16px;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .badge {
+                font-size: 0.72rem;
+                padding: 4px 10px;
+            }
+
+            .card {
+                padding: 18px;
+            }
+
+            .card-label-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+            }
+
+            textarea {
+                height: 160px;
+                padding: 12px;
+            }
+
+            button {
+                padding: 13px;
+                font-size: 15px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="wrapper">
-        <div class="header">
-            <h1>📚 Course Topic Classifier</h1>
-            <p>Paste a course description and discover its topics instantly</p>
-        </div>
 
-        <div class="card">
+    <header>
+        <div class="nav">
+            <div class="wordmark">
+                Udemy Course Topic Classifier
+            </div>
+            <span class="badge">Built for Udemy instructors</span>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <section class="hero">
+            <h1>Find out what your course actually teaches</h1>
+            <p>Paste the description or curriculum text from a Udemy course and get back its topics</p>
+        </section>
+
+        <section class="card">
             <form action="/" method="post">
-                <label for="text">Course Description</label>
-                <textarea id="text" name="text" placeholder="e.g. This course covers neural networks, backpropagation, and deep learning architectures for image recognition..."></textarea>
-                <button type="submit">✨ Classify Topics</button>
+                <div class="card-label-row">
+                    <label for="text">Course description</label>
+                    <span class="hint">from your Udemy listing</span>
+                </div>
+                <p class="field-help">Copy this from your course's <strong>"Description"</strong> section</p>
+                <textarea id="text" name="text" placeholder="Paste your course description here..."></textarea>
+                <button type="submit">✨ Classify topics</button>
             </form>
-        </div>
+        </section>
 
-        <p class="footer-note">Powered by a multilabel machine learning model</p>
+        <section class="how">
+            <h2 class="section-heading">How it works</h2>
+            <p class="section-sub">Three steps between a raw course description and a clean set of topic labels.</p>
+            <div class="steps">
+                <div class="step">
+                    <span class="num">01</span>
+                    <h3>Paste your text</h3>
+                    <p>Drop in a course description, syllabus, or curriculum section straight from Udemy.</p>
+                </div>
+                <div class="step">
+                    <span class="num">02</span>
+                    <h3>Model reads it</h3>
+                    <p>A multilabel classifier scores the text against dozens of known course topics at once.</p>
+                </div>
+                <div class="step">
+                    <span class="num">03</span>
+                    <h3>Get predicted topics</h3>
+                    <p>Results come back hierarchically — a broad category with its matching subcategory beneath it, and a course can match more than one pair.</p>
+                </div>
+            </div>
+        </section>
+
     </div>
+
+    <footer>
+        <p>Powered by a multilabel machine learning model.</p>
+        <p>Not affiliated with or endorsed by Udemy, Inc.</p>
+    </footer>
+
 </body>
 
 </html>
