@@ -7,9 +7,7 @@
 ![ONNX](https://img.shields.io/badge/Inference-ONNX%20Runtime-lightgrey)
 ![Gradio](https://img.shields.io/badge/Demo-Gradio-brightgreen)
 
-A full end-to-end NLP pipeline — **web scraping → data cleaning → model fine-tuning → model compression → deployment** — that takes a free-text course description and predicts which of **227 topics** it belongs to.
-
-🔗 **Live demo:** [multilabel-course-topic-classifier-2.onrender.com](https://multilabel-course-topic-classifier-2.onrender.com/)
+🔗 **Live demo:** [multilabel-course-topic-classifier-2.onrender.com](https://multilabel-course-topic-classifier-2.onrender.com/) <br>
 🔗 **Gradio / HuggingFace Space:** [huggingface.co/spaces/SheikhAnandee/multilabel-udemy-course-classifier](https://huggingface.co/spaces/SheikhAnandee/multilabel-udemy-course-classifier)
 
 ---
