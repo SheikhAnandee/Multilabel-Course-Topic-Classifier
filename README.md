@@ -30,7 +30,9 @@
 - [Screenshots](#screenshots)
 - [Future Improvements](#future-improvements)
 - [License](#license)
+- [Acknowledgements](#acknowledgements)
 - [Author](#author)
+- [Contact](#contact)
 
 ---
 
@@ -77,7 +79,7 @@ Multilabel-Course-Topic-Classifier/
 
 ### 1. Data Collection
 
-Course listings — title, URL, description, topic, and topic list — were scraped directly from Udemy into `course_details.csv`, resulting in **11,061** scraped course records.
+Course listings — title, URL, description, topic, and topic list — were scraped directly from Udemy into [`course_details.csv`](https://github.com/SheikhAnandee/Multilabel-Course-Topic-Classifier/blob/main/data/course_details.csv), resulting in **11,061** scraped course records.
 
 ### 2. Data Preprocessing
 
@@ -92,7 +94,7 @@ Fine-tuned a `distilroberta-base` model from HuggingFace Transformers using **Fa
 
 The model takes a course description as input and predicts the relevant course topics. The model training notebook can be viewed [here](https://github.com/SheikhAnandee/Multilabel-Course-Topic-Classifier/tree/main/notebooks).
 
-On a held-out validation split (10% of the data, 1,105 samples), the model achieved an F1 score (micro) of **0.48** and F1 score (macro) of **0.08**.
+On a held-out validation split, the model achieved an F1 score (micro) of 0.59 and F1 score (macro) of 0.42.
 
 ### 4. Model Compression & ONNX Inference
 
@@ -112,16 +114,17 @@ The compressed model is deployed as a **Gradio app on HuggingFace Spaces** ([`de
 
 A **Flask** app (see the `flask` branch) wraps a simple web form around the deployed model — it calls the Hugging Face Space via `gradio_client`, applies a confidence threshold, and displays the matching topics. It's live at [multilabel-course-topic-classifier-2.onrender.com](https://multilabel-course-topic-classifier-2.onrender.com/).
 
+
 ## Results
 
-Evaluated on a held-out validation split (10% of the data, 1,105 samples):
+Evaluated on a held-out validation split:
 
 | Metric | Score |
 |---|---|
-| F1 (micro) | 0.48 |
-| F1 (macro) | 0.08 |
+| F1 (micro) | 0.59 |
+| F1 (macro) | 0.42 |
 
-The quantized ONNX model matches this performance while being significantly lighter and faster for CPU inference — with no accuracy trade-off from compression. The gap between micro and macro F1 reflects the long-tail label distribution: common topics are predicted reliably, while many of the 227 topics have too few training examples for the model to learn them well individually.
+The quantized ONNX model matches this performance while being significantly lighter and faster for CPU inference — with no accuracy trade-off from compression.
 
 ## Getting Started
 
@@ -174,7 +177,18 @@ From there:
 
 This project is licensed under the [MIT License](https://github.com/SheikhAnandee/Multilabel-Course-Topic-Classifier/blob/main/LICENSE).
 
+## Acknowledgements
+
+- Course topic data sourced from publicly listed [Udemy](https://www.udemy.com/) course pages
+- Built with [HuggingFace Transformers](https://huggingface.co/docs/transformers/index), [fastai](https://www.fast.ai/), and [Blurr](https://github.com/ohmeow/blurr) for fine-tuning
+- Deployed using [Gradio](https://www.gradio.app/) on [HuggingFace Spaces](https://huggingface.co/spaces)
+
 ## Author
 
 **Sheikh Anandee**
-GitHub: [@SheikhAnandee](https://github.com/SheikhAnandee)
+GitHub: [@SheikhAnandee](https://github.com/SheikhAnandee) <br>
+Email: anandeehasan24@gmail.com
+
+## Contact
+
+Have a question, found a bug, or want to collaborate? Feel free to [open an issue](https://github.com/SheikhAnandee/Multilabel-Course-Topic-Classifier/issues) or reach out directly.
