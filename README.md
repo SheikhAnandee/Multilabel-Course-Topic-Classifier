@@ -59,7 +59,7 @@ A text classification model covering data collection, preprocessing, model train
 
 ## Project Structure
 
-\`\`\`
+```
 Multilabel-Course-Topic-Classifier/
 ├── data/                          # Scraped and processed course data (course_details.csv)
 ├── deployment/                    # Gradio app + topic_types_encoded.json label map
@@ -69,7 +69,7 @@ Multilabel-Course-Topic-Classifier/
 ├── course-classifier-quantized.onnx   # Final compressed model
 ├── requirements.txt
 └── LICENSE
-\`\`\`
+```
 
 > The Flask web app implementation lives on the separate `flask` branch.
 
@@ -92,7 +92,7 @@ Fine-tuned a `distilroberta-base` model from HuggingFace Transformers using **Fa
 
 The model takes a course description as input and predicts the relevant course topics. The model training notebook can be viewed [here](https://github.com/SheikhAnandee/Multilabel-Course-Topic-Classifier/tree/main/notebooks).
 
-On a held-out validation split, the model achieved an F1 score (micro) of 0.59 and F1 score (macro) of 0.42.
+On a held-out validation split (10% of the data, 1,105 samples), the model achieved an F1 score (micro) of **0.48** and F1 score (macro) of **0.08**.
 
 ### 4. Model Compression & ONNX Inference
 
@@ -110,29 +110,29 @@ The compressed model is deployed as a **Gradio app on HuggingFace Spaces** ([`de
 
 ### 6. Web Application
 
-A **Flask** app (see the `flask` branch) wraps the same model behind a simple web form — paste a course description in, get predicted topics out. It's live at [multilabel-course-topic-classifier-2.onrender.com](https://multilabel-course-topic-classifier-2.onrender.com/).
+A **Flask** app (see the `flask` branch) wraps a simple web form around the deployed model — it calls the Hugging Face Space via `gradio_client`, applies a confidence threshold, and displays the matching topics. It's live at [multilabel-course-topic-classifier-2.onrender.com](https://multilabel-course-topic-classifier-2.onrender.com/).
 
 ## Results
 
-Evaluated on a held-out validation split:
+Evaluated on a held-out validation split (10% of the data, 1,105 samples):
 
 | Metric | Score |
 |---|---|
-| F1 (micro) | 0.59 |
-| F1 (macro) | 0.42 |
+| F1 (micro) | 0.48 |
+| F1 (macro) | 0.08 |
 
-The quantized ONNX model matches this performance while being significantly lighter and faster for CPU inference — with no accuracy trade-off from compression.
+The quantized ONNX model matches this performance while being significantly lighter and faster for CPU inference — with no accuracy trade-off from compression. The gap between micro and macro F1 reflects the long-tail label distribution: common topics are predicted reliably, while many of the 227 topics have too few training examples for the model to learn them well individually.
 
 ## Getting Started
 
-\`\`\`bash
+```bash
 # Clone the repo
 git clone https://github.com/SheikhAnandee/Multilabel-Course-Topic-Classifier.git
 cd Multilabel-Course-Topic-Classifier
 
 # Install dependencies
 pip install -r requirements.txt
-\`\`\`
+```
 
 From there:
 - Explore the training / ONNX-conversion pipeline in `notebooks/`
@@ -140,6 +140,8 @@ From there:
 - Or just try the live app: [multilabel-course-topic-classifier-2.onrender.com](https://multilabel-course-topic-classifier-2.onrender.com/)
 
 ## Screenshots
+
+### Flask Web App
 
 <p align="center">
   <img src="src/flask_app_home.png" width="900">
@@ -150,7 +152,15 @@ From there:
 <p align="center">
   <img src="src/flask_app_results.png" width="900">
   <br>
-  <em>Result — predicted topics for a course description (Development, Web Development, JavaScript)</em>
+  <em>Result — predicted topics for a course description</em>
+</p>
+
+### Gradio / Hugging Face Space
+
+<p align="center">
+  <img src="src/gradio.png" width="900">
+  <br>
+  <em>The same model served as a Gradio app on Hugging Face Spaces, returning the top-5 predicted topics with confidence scores</em>
 </p>
 
 ## Future Improvements
