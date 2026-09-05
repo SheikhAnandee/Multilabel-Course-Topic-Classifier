@@ -1,13 +1,14 @@
 ---
-title: Multilabel Book Genre Classifier
-emoji: 🌖
-colorFrom: indigo
-colorTo: purple
+title: Multilabel Udemy Course Classifier
+emoji: 🚀
+colorFrom: green
+colorTo: yellow
 sdk: gradio
-sdk_version: 3.17.0
+sdk_version: 6.25.0
+python_version: '3.12'
 app_file: app.py
 pinned: false
-license: apache-2.0
+license: mit
+short_description: 'Multi-label topic classification for Udemy courses '
 ---
-
 Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
